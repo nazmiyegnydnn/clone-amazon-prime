@@ -1,0 +1,34 @@
+.header{
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    .row{
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        background-color:  #00050d;
+        width: 800px;
+        border-radius: 10px;
+        .logo{
+            width: 96px;
+            height: 18px;
+        }
+        .navbar{
+            display: flex;
+            justify-content:space-evenly;
+            a{
+             color: white;
+             padding: 0 8px 0 8px;
+             font-size: 15px;
+            }
+        }
+        .searchLogo{
+            width: 30px;
+            height: 30px;
+            padding-left: 60px;
+        }
+    }
+}
