@@ -2,8 +2,40 @@
     .slider{
         margin-top: 50px;
         width: 100%;
-        height: 800px;
     }
+    .categories{
+           .watchAgain{
+                display: flex;
+                flex-wrap: nowrap;
+                margin-left: 70px;
+                margin-top: 30px;
+            }
+            .romantic{
+                display: flex;
+                flex-wrap: nowrap;
+                margin-left: 70px;
+            }
+            .actions{
+                display: flex;
+                flex-wrap: nowrap;
+                margin-left: 70px;
+            }
+            .adventure{
+                display: flex;
+                flex-wrap: nowrap;
+                margin-left: 70px;
+            }
+            .moviesCard{
+                width: 300px;
+                height: 300px;
+                color: white;
+                img{
+                    width: 250px;
+                    height: 150px;
+                }
+            }
+    }
+    
  
 
 }
