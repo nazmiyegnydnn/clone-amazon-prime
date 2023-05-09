@@ -11,16 +11,16 @@ const Header = () => {
   return (
     <div className='header'>
     <Row className='row'>
-      <Col span={3}>
+      <Col span={6}>
         <img  className='logo' src={Logo}/>
       </Col>
-      <Col span={6} className='navbar'>
+      <Col span={12} className='navbar'>
       <NavLink to="/">Anasayfa</NavLink>
       <NavLink to="/">TV Dizileri</NavLink>
       <NavLink to="/">Kategoriler</NavLink>
       <NavLink to="/">Bana Özel</NavLink>
       </Col>
-      <Col span={3} className='personal'>
+      <Col span={6} className='personal'>
       <img  className='searchLogo' src={Search}/>
       </Col>
     </Row>

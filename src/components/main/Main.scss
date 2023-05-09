@@ -4,31 +4,27 @@
         width: 100%;
     }
     .categories{
-           .watchAgain{
+           .primeText{
+            display: flex;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 70px;
+                span{
+                    color: #79b8f3;
+                    padding-right: 10px;
+                } 
+            }       
+           .watchAgain ,  .romantic, .actions ,.adventure {
                 display: flex;
-                flex-wrap: nowrap;
-                margin-left: 70px;
-                margin-top: 30px;
-            }
-            .romantic{
-                display: flex;
-                flex-wrap: nowrap;
-                margin-left: 70px;
-            }
-            .actions{
-                display: flex;
-                flex-wrap: nowrap;
-                margin-left: 70px;
-            }
-            .adventure{
-                display: flex;
-                flex-wrap: nowrap;
                 margin-left: 70px;
             }
             .moviesCard{
                 width: 300px;
                 height: 300px;
                 color: white;
+                font-size: 15px;
+                font-weight: bold;
                 img{
                     width: 250px;
                     height: 150px;
