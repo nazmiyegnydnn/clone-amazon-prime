@@ -140,11 +140,14 @@ export const dataSlice =  createSlice({
     name: 'data',   
     initialState,
     reducers: {
-   
+        filterTitle :(state , action) =>{ 
+            const filterData = state.movies?.filter((el) => el?.type?.toLowerCase()?.includes(action.payload.toLowerCase()));
+            state.movies =  filterData   
+          },
         
     }
   })
 
-  export const {} = dataSlice.actions
+  export const { filterTitle } = dataSlice.actions
 
   export default dataSlice.reducer 

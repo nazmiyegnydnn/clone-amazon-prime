@@ -3,11 +3,14 @@ import { Col, Row } from 'antd';
 import { NavLink } from "react-router-dom";
 import './Header.scss'
 import Logo from '../../images/Logo.png'
-import Search from '../../images/Search.png'
+import {filterTitle} from "../../dataSlice"
+import { useDispatch } from 'react-redux'
+
 
 
 
 const Header = () => {
+  const dispatch = useDispatch()
   return (
     <div className='header'>
     <Row className='row'>
@@ -21,7 +24,10 @@ const Header = () => {
       <NavLink to="/">Bana Özel</NavLink>
       </Col>
       <Col span={6} className='personal'>
-      <img  className='searchLogo' src={Search}/>
+      <input  
+        type="text"
+        placeholder="ARA"
+        onChange={(e) => dispatch(filterTitle(e.target.value))}/> 
       </Col>
     </Row>
     </div>
