@@ -1,39 +1,37 @@
 import React from 'react'
-import { useSelector} from "react-redux";
+import {useSelector , useDispatch } from 'react-redux'
 import './Main.scss'
 import Slider from '../../images/Slider.jpeg'
 import { useNavigate } from "react-router-dom";
+import { detayFilter, handleClick  } from "../../dataSlice";
+
 
 
 const Main = () => {
   const { movies } = useSelector((state) => state.data);
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-const handleClickOne= () => {
-    navigate(`/watchAgain`);
-}
-const handleClickTwo = () => {
-  navigate(`/romantic`);
-}
-const handleClickThree = () => {
-  navigate(`/actions`);
-}
+  const handleFocus = (el) => {
+    dispatch(handleClick(el))
+    navigate(`/category/${el}`)
+ }
 
-const handleClickFour = () => {
-  navigate(`/adventure`);
+ const handlePage = (item) => {
+  dispatch(detayFilter(item))
+  navigate(`/movies/${item.id}`)
 }
-
 
   return (
     <div className='main'>
       <img  className='slider' src={Slider}/>
       <div className='categories'>
-      <div  className='primeText' onClick={handleClickOne}> <p><span>Prime</span>Tekrar İzle</p></div>
-      <div className='watchAgain'>
-        {  movies
+      <div onClick={() => handleFocus("WatchAgain")} className='primeText' ><p><span>Prime</span>Tekrar İzle</p></div>
+      <div  className='watchAgain'>
+        { movies
           .filter((el) => el.type === "WatchAgain")
           .map((el) => 
-          <div className='moviesCard'>
+          <div onClick={() => handlePage(el)} className='moviesCard'>
               <h2>{el.name}</h2>
               <p>{el.date}</p>
               <img src={el.img}/>
@@ -41,12 +39,12 @@ const handleClickFour = () => {
           )
         }
       </div>
-      <div  className='primeText' onClick={handleClickTwo}> <p><span>Prime</span>Romantik Filmler</p></div>
+      <div onClick={() => handleFocus("Romantic")} className='primeText'> <p><span>Prime</span>Romantik Filmler</p></div>
       <div className='romantic'>
         {  movies
           .filter((el) => el.type === "Romantic")
           .map((el) => 
-          <div className='moviesCard'>
+          <div  onClick={() => handlePage(el)} className='moviesCard'>
               <h2>{el.name}</h2>
               <p>{el.date}</p>
               <img src={el.img}/>
@@ -54,12 +52,12 @@ const handleClickFour = () => {
           )
         }
       </div>
-      <div  className='primeText' onClick={handleClickThree}> <p><span>Prime</span>Aksiyon Filmleri</p></div>
+      <div onClick={() => handleFocus("Actions")} className='primeText'> <p><span>Prime</span>Aksiyon Filmleri</p></div>
       <div className='actions'>
       {  movies
           .filter((el) => el.type === "Actions")
           .map((el) => 
-          <div className='moviesCard'>
+          <div  onClick={() => handlePage(el)} className='moviesCard'>
               <h2>{el.name}</h2>
               <p>{el.date}</p>
               <img src={el.img}/>
@@ -67,12 +65,12 @@ const handleClickFour = () => {
           )
         }
       </div>
-      <div  className='primeText' onClick={handleClickFour}> <p><span>Prime</span>Macera Filmleri</p></div>
+      <div onClick={() => handleFocus("Adventure")} className='primeText'> <p><span>Prime</span>Macera Filmleri</p></div>
       <div className='adventure'>
       {  movies
           .filter((el) => el.type === "Adventure")
           .map((el) => 
-          <div className='moviesCard'>
+          <div  onClick={() => handlePage(el)} className='moviesCard'>
               <h2>{el.name}</h2>
               <p>{el.date}</p>
               <img src={el.img}/>

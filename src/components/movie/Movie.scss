@@ -1,0 +1,19 @@
+.movieCard{
+    margin: 100px 0 0 10px;
+    display: flex;
+    justify-content: space-evenly;
+    .detayImage{
+     img{
+        width: 500px;
+        height: 300px;
+     }
+    }
+    .detayText{
+        p{
+            color:white;
+        }
+     h1{
+        color: white;
+     }
+    }
+}

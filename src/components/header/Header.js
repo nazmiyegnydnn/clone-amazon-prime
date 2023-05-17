@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 import { NavLink } from "react-router-dom";
 import './Header.scss'
 import Logo from '../../images/Logo.png'
-import {filterTitle} from "../../dataSlice"
+import { filterTitle} from "../../dataSlice"
 import { useDispatch } from 'react-redux'
 
 
@@ -11,6 +11,14 @@ import { useDispatch } from 'react-redux'
 
 const Header = () => {
   const dispatch = useDispatch()
+
+  const focusClick = (el) => {
+    console.log(el)
+    dispatch(filterTitle(el))
+  }
+
+
+
   return (
     <div className='header'>
     <Row className='row'>
@@ -27,7 +35,7 @@ const Header = () => {
       <input  
         type="text"
         placeholder="ARA"
-        onChange={(e) => dispatch(filterTitle(e.target.value))}/> 
+        onChange={(e) => focusClick(e.target.value)}/> 
       </Col>
     </Row>
     </div>

@@ -1,21 +1,17 @@
 import {BrowserRouter , Routes , Route} from 'react-router-dom';
 import Home from "./components/home/Home"
-import WatchAgain from "./components/watchAgain/WatchAgain"
-import Romantic from "./components/romantic/Romantic"
-import Actions from "./components/actions/Actions"
-import Adventure from "./components/adventure/Adventure"
 import './App.scss'
+import Category from './components/category/Category';
+import Movie from './components/movie/Movie';
 
-function App() {
+function App() {  
   return (
     <div className="app">
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
-        <Route path='/:watchAgainId' element={<WatchAgain/>}></Route>
-        <Route path='/romantic' element={<Romantic/>}></Route>
-        <Route path='/actions' element={<Actions/>}></Route>
-        <Route path='/adventure' element={<Adventure/>}></Route>
+        <Route path='/category/:type' element={<Category/>}></Route>
+        <Route path='/movies/:movieId' element={<Movie/>}></Route>
       </Routes>
     </BrowserRouter>
     </div>

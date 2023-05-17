@@ -23,6 +23,7 @@ const initialState = {
             "id":1,
             "name":"Hunters",
             "type":"Actions",
+            categoryId:1,
             img:Hunters,
             "date":"20.01.2004", 
             },
@@ -30,6 +31,7 @@ const initialState = {
              "id":2,
              "name":"JackRyan",
             "type":"Actions",
+            categoryId:1,
             img:JackRyan,
             "date":"20.01.2004",
             },
@@ -37,6 +39,7 @@ const initialState = {
              "id":3,
              "name":"Mentalist",
              "type":"Actions",
+             categoryId:1,
              img:Mentalist,
              "date":"20.01.2004",
             },
@@ -44,6 +47,7 @@ const initialState = {
              "id":4,
              "name":"Picard",
              "type":"Actions",
+             categoryId:1,
              img:Picard,
              "date":"20.01.2004",
         
@@ -52,6 +56,7 @@ const initialState = {
              "id":5,
              "name":"Ask Gelir",
              "type":"Romantic",
+             categoryId:2,
              img:AskGelir,
              "date":"20.01.2004",
             },
@@ -59,6 +64,7 @@ const initialState = {
              "id":6,
              "name":"Pride",
             "type":"Romantic",
+            categoryId:2,
             img:Pride,
              "date":"20.01.2004",
             },
@@ -66,6 +72,7 @@ const initialState = {
              "id":7,
              "name":"Srek",
              "type":"Romantic",
+             categoryId:2,
              img:Srek,
              "date":"20.01.2004",
             },
@@ -73,6 +80,7 @@ const initialState = {
              "id":8,
              "name":"The Map",
              "type":"Romantic",
+             categoryId:2,
              img:TheMap,
              "date":"20.01.2004",
             },
@@ -80,6 +88,7 @@ const initialState = {
              "id":9,
              "name":"Casino",
              "type":"Adventure",
+             categoryId:3,
              img:Casino,
              "date":"20.01.2004",
             },
@@ -87,6 +96,7 @@ const initialState = {
              "id":10,
               "name":"Jolt",
              "type":"Adventure",
+             categoryId:3,
              img:Jolt,
              "date":"20.01.2004",
             },
@@ -94,6 +104,7 @@ const initialState = {
              "id":11,
              "name":"Kusursuz",
              "type":"Adventure",
+             categoryId:3,
              img:Kusursuz,
              "date":"20.01.2004",
             },
@@ -101,6 +112,7 @@ const initialState = {
              "id":12,
              "name":"Most",
              "type":"Adventure",
+             categoryId:3,
              img:Most,
              "date":"20.01.2004",
             },
@@ -108,6 +120,7 @@ const initialState = {
              "id":13,
              "name":"Dövüş Kulubu",
              "type":"WatchAgain",
+             categoryId:4,
              img:DovusKulubu,
              "date":"20.01.2004",
             },
@@ -115,6 +128,7 @@ const initialState = {
              "id":14,
              "name":"Rüyanda Görürsün",
              "type":"WatchAgain",
+             categoryId:4,
              img:RuyandaGorursun,
              "date":"20.01.2004",
             },
@@ -122,6 +136,7 @@ const initialState = {
              "id":15,
              "name":"Samaritan",
              "type":"WatchAgain",
+             categoryId:4,
              img:Samaritan,
              "date":"20.01.2004",
             },
@@ -129,10 +144,14 @@ const initialState = {
              "id":16,
              "name":"Tomorrow",
              "type":"WatchAgain",
+             categoryId:4,
              img:Tomorrow,
              "date":"20.01.2004",
             }
     ],
+    detayData : [],
+    categoryData:[]
+ 
 }
   
 
@@ -140,14 +159,22 @@ export const dataSlice =  createSlice({
     name: 'data',   
     initialState,
     reducers: {
-        filterTitle :(state , action) =>{ 
-            const filterData = state.movies?.filter((el) => el?.type?.toLowerCase()?.includes(action.payload.toLowerCase()));
+        filterTitle :(state , action) =>{
+            const filterData = state.movies?.filter((el) => el?.name?.toLowerCase().includes(action.payload.toLowerCase()));
             state.movies =  filterData   
           },
-        
-    }
+        handleClick : (state , action) => {
+            const movieFilter = state.movies?.filter((el) => el?.type === action.payload);
+            console.log(movieFilter)
+            state.categoryData = movieFilter
+        },
+        detayFilter : (state , action) => {
+            const movieData = state.movies?.filter((el) => +el.id === +action.payload.id);
+            state.detayData = movieData
+         }
+        }
   })
 
-  export const { filterTitle } = dataSlice.actions
+  export const { filterTitle ,detayFilter,handleClick} = dataSlice.actions
 
   export default dataSlice.reducer 
