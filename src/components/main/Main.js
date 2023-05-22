@@ -7,6 +7,7 @@ import { detayFilter, handleClick  } from "../../dataSlice";
 
 
 
+
 const Main = () => {
   const { movies } = useSelector((state) => state.data);
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Main = () => {
   navigate(`/movies/${item.id}`)
 }
 
+
   return (
     <div className='main'>
       <img  className='slider' src={Slider}/>
@@ -32,8 +34,6 @@ const Main = () => {
           .filter((el) => el.type === "WatchAgain")
           .map((el) => 
           <div onClick={() => handlePage(el)} className='moviesCard'>
-              <h2>{el.name}</h2>
-              <p>{el.date}</p>
               <img src={el.img}/>
           </div>
           )
@@ -45,8 +45,6 @@ const Main = () => {
           .filter((el) => el.type === "Romantic")
           .map((el) => 
           <div  onClick={() => handlePage(el)} className='moviesCard'>
-              <h2>{el.name}</h2>
-              <p>{el.date}</p>
               <img src={el.img}/>
           </div>
           )
@@ -58,8 +56,6 @@ const Main = () => {
           .filter((el) => el.type === "Actions")
           .map((el) => 
           <div  onClick={() => handlePage(el)} className='moviesCard'>
-              <h2>{el.name}</h2>
-              <p>{el.date}</p>
               <img src={el.img}/>
           </div>
           )
@@ -71,8 +67,6 @@ const Main = () => {
           .filter((el) => el.type === "Adventure")
           .map((el) => 
           <div  onClick={() => handlePage(el)} className='moviesCard'>
-              <h2>{el.name}</h2>
-              <p>{el.date}</p>
               <img src={el.img}/>
           </div>
           )
